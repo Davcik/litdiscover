@@ -367,7 +367,7 @@ Stewart, and Tingley 2019). Compare the two rankings to see which
 terms are distinctive versus generic.
 
 **Interpretation.** Terms that rank high on weight but low on FREX are
-generic — they appear in many topics and dominate by frequency alone.
+generic because they appear in many topics and are dominated by frequency alone.
 Terms that rank high on both are the theory-distinctive vocabulary you
 want to feature when labelling topics or describing them in a paper.
 For a corpus with deliberately theory-specific anchors, FREX usually
