@@ -71,7 +71,7 @@ default is {bf:dv} when {opt dv()} is supplied{p_end}
 
 {syntab:Network and exclusivity measures}
 {synopt :{opt netmeasures}}compute network-analytic measures (degree centrality, betweenness centrality, modularity, Louvain communities) over the within-field and cross-field construct co-occurrence tables; requires at least one construct field {p_end}
-{synopt :{opt frex}}add a {bf:frex} column to {bf:litdiscover_topicterms.dta} containing the FREX (FRequency-EXclusivity) score {p_end}
+{synopt :{opt frex}}add a {bf:frex} column to {bf:litdiscover_topicterms.dta} containing the FREX (FRequency-EXclusivity) score per {help litdiscover##roberts2019:Roberts, Stewart, and Tingley (2019)}{p_end}
 {synopt :{opt netscript(string)}}path to {bf:litdiscover_net.py}; if omitted, located via {helpb findfile}{p_end}
 {synoptline}
 
