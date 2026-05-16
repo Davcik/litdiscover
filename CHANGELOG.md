@@ -38,7 +38,7 @@ First public release.
   stability, and joint-toggle invocation, with a machine-readable
   assertion log (CSV) for regression tracking across versions.
 
-## [0.3.1] - 2026-05-15
+## [0.3.1] - 2026-05-13
 
 ### Added in 0.3.1
 
@@ -58,7 +58,7 @@ First public release.
 - `litdiscover_stability.dta` (pairwise) schema and contents.
 - All v0.3.0 toggles and outputs.
 
-## [0.3.0] - 2026-05-14
+## [0.3.0] - 2026-05-10
 
 ### Added in 0.3.0
 
@@ -89,7 +89,7 @@ First public release.
 - v0.2 was strictly additive; every v0.2 test continued to pass
   byte-for-byte when neither new toggle was supplied.
 
-## [0.2.6] - 2026-05-14
+## [0.2.6] - 2026-05-03
 
 ### Added in 0.2.6
 
@@ -117,7 +117,7 @@ First public release.
   `preserve` blocks.
 - No `///` line continuations anywhere in the package source.
 
-## [0.2.0] - 2026-05-11
+## [0.2.0] - 2026-04-19
 
 ### Added in 0.2.0
 
