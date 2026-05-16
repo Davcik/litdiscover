@@ -73,6 +73,9 @@ with static figures and interactive HTML — see:
   in this repository
 - The documentation: `help litdiscover` inside Stata
 
+For a researcher-oriented walkthrough of twelve common use cases —
+labelling topics, year stratification, network analysis, regression on
+topic shares, and more — see [USECASES.md](USECASES.md).
 ---
 
 ## Documentation
