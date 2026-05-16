@@ -158,7 +158,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 **Nebojsa S. Davcik**
 EM Normandie Business School, Oxford, UK
 ORCID: [0000-0003-1041-8788](https://orcid.org/0000-0003-1041-8788)
-Email: davcik@live.com
+Email: davcik {@} live.com
 
 ---
 
