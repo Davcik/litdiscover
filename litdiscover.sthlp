@@ -58,7 +58,7 @@ default is {bf:dv} when {opt dv()} is supplied{p_end}
 {synopt :{opt ngram(#)}}maximum n-gram length, in [1, 3]; default {bf:1}{p_end}
 
 {syntab:File handling}
-{synopt :{opt script(string)}}path to {bf:litdiscover.py}; if omitted, located via {helpb findfile}{p_end}
+{synopt :{opt script(string)}}path to {bf:litdiscover.py}; if omitted, located via findfile{p_end}
 {synopt :{opt export(string)}}flat output directory; default {bf:"output"}; mutually exclusive with {opt outdir()}{p_end}
 {synopt :{opt outdir(string)}}root output directory with the subdirectory layout {bf:./root/tables/}, {bf:./root/figures/}, {bf:./root/interactive/}; mutually exclusive with {opt export()}{p_end}
 {synopt :{opt keeptemp}}retain the intermediate corpus CSV{p_end}
@@ -67,12 +67,12 @@ default is {bf:dv} when {opt dv()} is supplied{p_end}
 {synopt :{opt figures}}produce static figures (Stata-tier via {bf:heatplot}/{bf:palettes}; Python-tier via {bf:matplotlib}/{bf:seaborn}/{bf:wordcloud}){p_end}
 {synopt :{opt interactive}}produce three interactive HTML deliverables (pyLDAvis, pyvis network, plotly Sankey){p_end}
 {synopt :{opt sankeytopfreq(#)}}truncate theory nodes in the Sankey diagram to the top {it:#} by total documents; default {bf:15}{p_end}
-{synopt :{opt vizscript(string)}}path to {bf:litdiscover_viz.py}; if omitted, located via {helpb findfile}{p_end}
+{synopt :{opt vizscript(string)}}path to {bf:litdiscover_viz.py}; if omitted, located via findfile{p_end}
 
 {syntab:Network and exclusivity measures}
 {synopt :{opt netmeasures}}compute network-analytic measures (degree centrality, betweenness centrality, modularity, Louvain communities) over the within-field and cross-field construct co-occurrence tables; requires at least one construct field{p_end}
 {synopt :{opt frex}}add a {bf:frex} column to {bf:litdiscover_topicterms.dta} containing the FREX (FRequency-EXclusivity) score per Roberts, Stewart, and Tingley (2019){p_end}
-{synopt :{opt netscript(string)}}path to {bf:litdiscover_net.py}; if omitted, located via {helpb findfile}{p_end}
+{synopt :{opt netscript(string)}}path to {bf:litdiscover_net.py}; if omitted, located via findfile{p_end}
 {synoptline}
 
 
