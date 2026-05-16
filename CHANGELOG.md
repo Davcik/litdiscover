@@ -130,6 +130,6 @@ First public release.
   frameworks: theory, dependent variable, independent variable,
   moderator, mediator, decision, context, method, journal, year.
 
-## [0.1] - earlier development
+## [0.1] - earlier development - 2026-03-15
 
 Internal development. Not publicly released.
