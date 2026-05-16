@@ -69,8 +69,6 @@ ADO frameworks, FREX exclusivity scoring, network-analytic measures
 on construct co-occurrences, and the full publication-ready pipeline
 with static figures and interactive HTML — see:
 
-- [`litdiscover_examples_model.do`](litdiscover_examples_model.do)
-  in this repository
 - The documentation: `help litdiscover` inside Stata
 
 For a researcher-oriented walkthrough of twelve common use cases —
