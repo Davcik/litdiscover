@@ -14,6 +14,52 @@ working directory.
 For full reference documentation, type `help litdiscover` inside Stata. For the bibliographic
 citation, see `CITATION.cff`.
 
+
+---
+
+## A note about the example dataset
+
+The use cases below load the synthetic example dataset
+`litdiscover_example500.dta` using the classical Stata pattern:
+
+```stata
+use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
+```
+
+Replace `C:\YOUR_FOLDER\` with the actual path on your machine. For
+example, if you keep your project files in `D:\research\litreview\`,
+the command becomes:
+
+```stata
+use "D:\research\litreview\litdiscover_example500.dta", clear
+```
+
+**Where is the example dataset on my machine?** If you installed
+`litdiscover` via `net install` from GitHub, the example dataset was
+placed in your Stata `ado/plus/l/` directory rather than in your
+current working directory. To locate it, run:
+
+```stata
+findfile litdiscover_example500.dta
+display "`r(fn)'"
+```
+
+The `display` output gives the absolute path; copy it into your `use`
+command.
+
+**Tip.** If you plan to run several use cases in sequence, copy the
+file once to a convenient working directory and then reference it by
+the path you choose for the rest of the session. For example:
+
+```stata
+findfile litdiscover_example500.dta
+copy "`r(fn)'" "C:\YOUR_FOLDER\litdiscover_example500.dta", replace
+```
+
+After the `copy`, every subsequent use case can rely on the same
+`use "C:\YOUR_FOLDER\..."` line.
+
+
 ---
 
 ## Use case 1. What are the dominant themes in my corpus?
@@ -22,7 +68,7 @@ citation, see `CITATION.cff`.
 overview of the themes present in the literature.
 
 ```stata
-use "litdiscover_example500.dta", clear
+use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
 litdiscover, abstract(abstract) topics(5)
 list topic rank term weight if rank <= 5, sepby(topic) noobs abbrev(20)
 ```
@@ -54,7 +100,7 @@ You now want to attach substantive labels so that downstream tables
 and graphs use the names you assigned, not the topic numbers.
 
 ```stata
-use "litdiscover_example500.dta", clear
+use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
 litdiscover, abstract(abstract) topics(5)
 list topic rank term if rank <= 8, sepby(topic) noobs abbrev(25)
 
@@ -91,7 +137,7 @@ they are not artefacts of a single LDA random initialisation. A topic
 that disappears under a different random seed is not a stable finding.
 
 ```stata
-use "litdiscover_example500.dta", clear
+use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
 litdiscover, abstract(abstract) topics(5) seeds(5) coherence outdir(ex03_robust)
 
 * Inspect per-topic stability and coherence in one table.
@@ -133,7 +179,7 @@ becoming more or less prevalent in the literature across publication
 years.
 
 ```stata
-use "litdiscover_example500.dta", clear
+use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
 litdiscover, abstract(abstract) theory(theory) year(year) topics(5) figures outdir(ex04_year)
 
 use "ex04_year/tables/litdiscover_topic_by_year.dta", clear
@@ -165,7 +211,7 @@ Use case 2 actually fits the documents, and which topics dominate. This is the
 qualitative validation step.
 
 ```stata
-use "litdiscover_example500.dta", clear
+use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
 litdiscover, abstract(abstract) topics(5)
 
 use "ex01_minimal/tables/litdiscover_doctopic.dta", clear
@@ -201,7 +247,7 @@ topic-modelling papers.
 preferentially applied to particular industries, countries, or methods.
 
 ```stata
-use "litdiscover_example500.dta", clear
+use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
 litdiscover, abstract(abstract) theory(theory) context(context) method(method) topics(5) outdir(ex06_context)
 
 use "ex06_context/tables/litdiscover_topic_by_field.dta", clear
@@ -233,7 +279,7 @@ management literature review framework (Paul et al. 2024) — showing
 which theories are commonly combined with which contexts and methods.
 
 ```stata
-use "litdiscover_example500.dta", clear
+use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
 litdiscover, abstract(abstract) theory(theory) context(context) method(method) iv(iv) tccmclass(iv) tccmminfreq(2) outdir(ex07_tccm)
 
 use "ex07_tccm/tables/litdiscover_tccm.dta", clear
@@ -263,11 +309,11 @@ two documents; 5 keeps only well-established patterns.
 ## Use case 8. What are the most central theories in the literature network?
 
 **Setup.** You want a network-analytic view of which theories co-occur
-most often with others. Highly central theories anchor the literature;
+most often with others. The reasoning is that highly central theories anchor the literature, and 
 peripheral theories appear in isolation.
 
 ```stata
-use "litdiscover_example500.dta", clear
+use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
 litdiscover, abstract(abstract) theory(theory) dv(dv) iv(iv) topics(5) netmeasures outdir(ex08_network)
 
 use "ex08_network/tables/litdiscover_network_measures.dta", clear
@@ -299,11 +345,11 @@ network-level scalar broadcast to every row of its network.
 
 **Setup.** The default top-terms list ranks terms by raw weight, which
 favours frequent terms. You want a ranking that balances frequency
-with exclusivity — terms that are both frequent within a topic and
+with exclusivity, i.e., terms that are both frequent within a topic and
 rare in other topics.
 
 ```stata
-use "litdiscover_example500.dta", clear
+use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
 litdiscover, abstract(abstract) topics(8) frex outdir(ex09_frex)
 
 use "ex09_frex/tables/litdiscover_topicterms.dta", clear
@@ -328,8 +374,7 @@ For a corpus with deliberately theory-specific anchors, FREX usually
 elevates the anchor terms.
 
 **Note.** The default FREX omega is 0.5 (equal weight on frequency and
-exclusivity), matching the `stm` R package default. The empirical
-cumulative distribution function is computed per topic over the full
+exclusivity). The empirical cumulative distribution function is computed per topic over the full
 vocabulary.
 
 ---
@@ -341,14 +386,14 @@ econometric model — for example, regressing an outcome on the
 prevalence of different theoretical perspectives.
 
 ```stata
-use "litdiscover_example500.dta", clear
+use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
 litdiscover, abstract(abstract) topics(5) noautoload outdir(ex10_regression)
 
 * doctopic has one row per document; merge it with your input dataset by study_id.
 use "ex10_regression/tables/litdiscover_doctopic.dta", clear
 merge 1:1 study_id using "ex10_regression/tables/_litdiscover_input_recovery.dta", nogen
 
-* Example: does topic 1 share vary by publication year?
+* Example: Do topic 1 shares vary by publication year?
 regress topic_1 year
 ```
 
@@ -377,7 +422,7 @@ are deterministically related, since rank is a function of weight.
 what was written.
 
 ```stata
-use "litdiscover_example500.dta", clear
+use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
 litdiscover, abstract(abstract) theory(theory) dv(dv) iv(iv) context(context) method(method) topics(5) coherence netmeasures frex figures outdir(ex11_full)
 
 * The end-of-run summary printed to the Results window lists everything.
@@ -416,7 +461,7 @@ use "litdiscover_example500.dta", clear
 use "ex01_minimal/tables/_litdiscover_input_recovery.dta", clear
 
 * Option C: suppress autoloading at the next run.
-use "litdiscover_example500.dta", clear
+use "C:\YOUR_FOLDER\C:\YOUR_FOLDER\litdiscover_example500.dta", clear
 litdiscover, abstract(abstract) topics(5) noautoload
 * Your input dataset stays in memory; no recovery needed.
 ```
