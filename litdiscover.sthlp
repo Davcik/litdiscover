@@ -58,7 +58,7 @@ default is {bf:dv} when {opt dv()} is supplied{p_end}
 {synopt :{opt ngram(#)}}maximum n-gram length, in [1, 3]; default {bf:1}{p_end}
 
 {syntab:File handling}
-{synopt :{opt script(string)}}path to {bf:litdiscover.py}; if omitted, located via {helpb findfile}{p_end}
+{synopt :{opt script(string)}}path to {bf:litdiscover.py}; if omitted, located via findfile{p_end}
 {synopt :{opt export(string)}}flat output directory; default {bf:"output"}; mutually exclusive with {opt outdir()}{p_end}
 {synopt :{opt outdir(string)}}root output directory with the subdirectory layout {bf:./root/tables/}, {bf:./root/figures/}, {bf:./root/interactive/}; mutually exclusive with {opt export()}{p_end}
 {synopt :{opt keeptemp}}retain the intermediate corpus CSV{p_end}
@@ -67,13 +67,17 @@ default is {bf:dv} when {opt dv()} is supplied{p_end}
 {synopt :{opt figures}}produce static figures (Stata-tier via {bf:heatplot}/{bf:palettes}; Python-tier via {bf:matplotlib}/{bf:seaborn}/{bf:wordcloud}){p_end}
 {synopt :{opt interactive}}produce three interactive HTML deliverables (pyLDAvis, pyvis network, plotly Sankey){p_end}
 {synopt :{opt sankeytopfreq(#)}}truncate theory nodes in the Sankey diagram to the top {it:#} by total documents; default {bf:15}{p_end}
-{synopt :{opt vizscript(string)}}path to {bf:litdiscover_viz.py}; if omitted, located via {helpb findfile}{p_end}
+{synopt :{opt vizscript(string)}}path to {bf:litdiscover_viz.py}; if omitted, located via findfile{p_end}
 
 {syntab:Network and exclusivity measures}
-{synopt :{opt netmeasures}}compute network-analytic measures (degree centrality, betweenness centrality, modularity, Louvain communities) over the within-field and cross-field construct co-occurrence tables; requires at least one construct field {p_end}
-{synopt :{opt frex}}add a {bf:frex} column to {bf:litdiscover_topicterms.dta} containing the FREX (FRequency-EXclusivity) score per {help litdiscover##roberts2019:Roberts, Stewart, and Tingley (2019)}{p_end}
-{synopt :{opt netscript(string)}}path to {bf:litdiscover_net.py}; if omitted, located via {helpb findfile}{p_end}
+{synopt :{opt netmeasures}}compute network-analytic measures (degree centrality, betweenness centrality, modularity, Louvain communities) over the within-field and cross-field construct co-occurrence tables; requires at least one construct field{p_end}
+{synopt :{opt frex}}add a {bf:frex} column to {bf:litdiscover_topicterms.dta} containing the FREX (FRequency-EXclusivity) score per Roberts, Stewart, and Tingley (2019){p_end}
+{synopt :{opt netscript(string)}}path to {bf:litdiscover_net.py}; if omitted, located via findfile{p_end}
+
+{syntab:Interactive behaviour}
+{synopt :{opt noautoload}}suppress the default of loading {bf:litdiscover_topicterms.dta} into memory at the end of the run; preserves the input dataset in memory instead{p_end}
 {synoptline}
+
 
 {title:Description}
 
@@ -111,6 +115,28 @@ produce publication-ready visualisations: Stata-native graphs (.gph and
 materials and project websites
 ({help litdiscover##sievert2014:Sievert and Shirley 2014};
 {help litdiscover##donthu2021:Donthu et al. 2021}).
+
+
+{title:Interactive behaviour (v1.0)}
+
+{pstd}
+For convenience at the Stata prompt, {cmd:litdiscover} loads
+{bf:litdiscover_topicterms.dta} into memory at the end of the run by
+default. The user can then immediately run {helpb list}, {helpb tabulate},
+{helpb graph}, {helpb tabstat}, and similar commands on the top-term
+table without first issuing a {helpb use} command. The original input
+dataset is saved to {bf:_litdiscover_input_recovery.dta} in the tables
+directory so the user can return to it with a single {helpb use}.
+
+{pstd}
+The end-of-run summary printed to the Results window lists every output
+file produced, with copy-paste-ready {helpb use} commands for the
+{bf:doctopic}, {bf:coherence}, {bf:topic_by_field}, and other tables.
+
+{pstd}
+For scripted workflows that need the input dataset to remain in memory,
+the {opt noautoload} option suppresses the default loading.
+
 
 {title:Output layout}
 
@@ -309,6 +335,8 @@ Conditional returns:
 {synopt :{bf:r(net_louvain_seed)}}seed used for Louvain community detection (fixed at 20250101){p_end}
 {synopt :{bf:r(network_measures_file)} / {bf:r(network_measures_cross_file)}}absolute paths to the two output files{p_end}
 {synopt :{bf:r(topic_stability_file)}}absolute path to {bf:litdiscover_topic_stability.dta} (only when {opt seeds()} > 1; v0.3.1){p_end}
+{synopt :{bf:r(topicterms_file)}}absolute path to {bf:litdiscover_topicterms.dta} (the table autoloaded into memory by default; v1.0){p_end}
+{synopt :{bf:r(input_recovery_file)}}absolute path to the saved copy of the input dataset; use with {helpb use} to restore the input data (v1.0){p_end}
 {synopt :{bf:r(frex_omega)} / {bf:r(frex_epsilon)}}FREX parameters (fixed at 0.5 and 1e-12); only with {opt frex}{p_end}
 {synopt :{bf:r(frex_topics)} / {bf:r(frex_vocab_size)}}counts used in the FREX ECDFs{p_end}
 {p2colreset}{...}

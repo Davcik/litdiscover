@@ -1,30 +1,30 @@
 *! litdiscover 1.0  15may2026
-*! Author: Nebojsa S. Davcik, EM Normandie Business School, Oxford, UK.
-*!         ORCID 0000-0003-1041-8788. Email: davcik@live.com.
+*! LDA topic modelling with deductive construct extraction for systematic
+*! literature reviews.
+*!
+*! Author:     Nebojsa S. Davcik, EM Normandie Business School, Oxford, UK.
+*!             ORCID 0000-0003-1041-8788. Email: davcik@live.com.
 *! Repository: https://github.com/Davcik/litdiscover
-*! Suggested citation:
+*! Licence:    GPL-3.0-or-later. See LICENSE in the repository root.
+*! Copyright (C) 2026 Nebojsa S. Davcik.
+*!
+*! This program is free software: you can redistribute it and/or modify it
+*! under the GNU General Public License version 3 or later. Distributed
+*! WITHOUT ANY WARRANTY; see <https://www.gnu.org/licenses/> for details.
+*!
+*! Citation:
 *!   Davcik, N. S. 2026. litdiscover: A Stata package for theory-aware
-*!     literature review and discovery.
-*!     Available at: https://github.com/Davcik/litdiscover
+*!     literature review and discovery. https://github.com/Davcik/litdiscover
 *!
-*! Licence: GPL-3.0-or-later. See LICENSE file in the repository root.
-*!
-*! Copyright (C) 2026  Nebojsa S. Davcik
-*!
-*! This program is free software: you can redistribute it and/or modify
-*! it under the terms of the GNU General Public License as published by
-*! the Free Software Foundation, either version 3 of the License, or
-*! (at your option) any later version. This program is distributed in
-*! the hope that it will be useful, but WITHOUT ANY WARRANTY; without
-*! even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-*! PARTICULAR PURPOSE. See <https://www.gnu.org/licenses/> for details.
+*! Version history and architectural notes: see CHANGELOG.md in the
+*! repository root and the help file (help litdiscover).
 
 capture program drop litdiscover
 
 program define litdiscover, rclass
     version 19.5
 
-    syntax , ABSTRACT(varname) [ ID(varname) YEAR(varname) THEORY(varname) DV(varname) IV(varname) MOD(varname) MED(varname) DECISION(varname) JOURNAL(varname) CONTEXT(varname) METHOD(varname) TCCMclass(string) TCCMminfreq(integer 1) SEP(string) TOPICS(integer 5) SEEDS(integer 1) COHERENCE SEED(integer 12345) MINFREQ(integer 1) MAXDF(real 1.0) NGRAM(integer 1) SCRIPT(string) EXPORT(string) KEEPTEMP OUTDIR(string) FIGURES INTERACTIVE SANKEYTOPFREQ(integer 15) VIZSCRIPT(string) NETMEASURES FREX NETSCRIPT(string) ]
+    syntax , ABSTRACT(varname) [ ID(varname) YEAR(varname) THEORY(varname) DV(varname) IV(varname) MOD(varname) MED(varname) DECISION(varname) JOURNAL(varname) CONTEXT(varname) METHOD(varname) TCCMclass(string) TCCMminfreq(integer 1) SEP(string) TOPICS(integer 5) SEEDS(integer 1) COHERENCE SEED(integer 12345) MINFREQ(integer 1) MAXDF(real 1.0) NGRAM(integer 1) SCRIPT(string) EXPORT(string) KEEPTEMP OUTDIR(string) FIGURES INTERACTIVE SANKEYTOPFREQ(integer 15) VIZSCRIPT(string) NETMEASURES FREX NETSCRIPT(string) NOAUTOload ]
 
     /* -----------------------------------------------------------------
        Defaults and option validation
@@ -159,7 +159,7 @@ program define litdiscover, rclass
     }
 
     /* -----------------------------------------------------------------
-       Block C: resolve netscript path if netmeasures is set.
+       Block C (v0.3): resolve netscript path if netmeasures is set.
        -----------------------------------------------------------------
     */
     if "`netmeasures'" != "" {
@@ -794,7 +794,7 @@ program define litdiscover, rclass
     }
 
     /* -----------------------------------------------------------------
-       Step 4i (Block C): netmeasures
+       Step 4i (Block C, v0.3): netmeasures
 
        Runs only when (i) the netmeasures toggle is set, and (ii) at
        least one construct field was supplied, since both cooc tables
@@ -1145,7 +1145,7 @@ program define litdiscover, rclass
     }
 
     /* -----------------------------------------------------------------
-       Block C returns: netmeasures
+       Block C (v0.3) returns: netmeasures
        -----------------------------------------------------------------
     */
     return scalar net_networks_within = real("`net_networks_within'")
@@ -1171,7 +1171,7 @@ program define litdiscover, rclass
     return local topic_stability_file "`_topic_stability_file'"
 
     /* -----------------------------------------------------------------
-       Block B returns: frex
+       Block B (v0.3) returns: frex
        -----------------------------------------------------------------
     */
     if "`frex_omega'" != "" {
@@ -1186,4 +1186,86 @@ program define litdiscover, rclass
     if "`frex_vocab_size'" != "" {
         return scalar frex_vocab_size = real("`frex_vocab_size'")
     }
+
+    /* -----------------------------------------------------------------
+       v1.0 usability layer: end-of-run summary and autoload.
+
+       After the analytic work is complete, do three things for the
+       casual interactive researcher:
+
+       (1) Save the user's original input dataset to a recoverable
+           location (the existing tempfile dies at end of session;
+           we copy it to a stable path inside the tables directory).
+       (2) Print a friendly summary to the Results window with
+           copy-paste-ready use commands for every output file.
+       (3) Unless noautoload was set, load litdiscover_topicterms.dta
+           into memory so list/tabulate/graph work without a use step.
+
+       Returned macros r(topicterms_file) and r(input_recovery_file)
+       expose paths for scripted workflows.
+       -----------------------------------------------------------------
+    */
+    local _topicterms_file  `"`_tabledir'/litdiscover_topicterms.dta"'
+    local _input_recovery   `"`_tabledir'/_litdiscover_input_recovery.dta"'
+
+    /* Step (1): save the input dataset to a stable path for recovery. */
+    qui use `userdata_orig', clear
+    qui save `"`_input_recovery'"', replace
+
+    return local topicterms_file      `"`_topicterms_file'"'
+    return local input_recovery_file  `"`_input_recovery'"'
+
+    /* Step (2): print the end-of-run summary. */
+    di as txt _newline "{hline 70}"
+    di as txt "LITDISCOVER summary"
+    di as txt "{hline 70}"
+    di as txt "Output directory: " as result `"`_tabledir'"'
+
+    /* List every .dta file in the tables directory. We use file commands
+       rather than shell to keep this cross-platform friendly. */
+    local _dtafiles : dir `"`_tabledir'"' files "litdiscover_*.dta"
+    if `"`_dtafiles'"' != "" {
+        di as txt _newline "Tables produced:"
+        foreach f of local _dtafiles {
+            di as txt "  " as result `"`_tabledir'/`f'"'
+        }
+    }
+
+    /* Figures and interactive subdirectories, only when set. */
+    if "`figures'" != "" & `figures_n' > 0 {
+        di as txt _newline "Figures produced: " as result `figures_n'
+        di as txt "  in " as result `"`_figdir'"'
+    }
+    if "`interactive'" != "" & `interactive_n' > 0 {
+        di as txt _newline "Interactive HTML files: " as result `interactive_n'
+        di as txt "  in " as result `"`_intdir'"'
+    }
+
+    /* Step (3): autoload behaviour. */
+    if "`noautoload'" == "" {
+        capture confirm file `"`_topicterms_file'"'
+        if !_rc {
+            qui use `"`_topicterms_file'"', clear
+            di as txt _newline as result "litdiscover_topicterms.dta is now in memory."
+            di as txt "Try these commands directly:"
+            di as input "  . list topic rank term weight if rank <= 5, sepby(topic) noobs"
+            di as input "  . tabulate topic"
+            di as input "  . graph bar (mean) weight, over(topic)"
+        }
+        else {
+            di as txt _newline as error "Note: litdiscover_topicterms.dta not found; nothing was loaded."
+        }
+    }
+    else {
+        di as txt _newline "Auto-load suppressed (noautoload). Your input dataset is still in memory."
+    }
+
+    /* Always show the user how to switch to other tables and recover input. */
+    di as txt _newline "To inspect another table:"
+    di as input `"  . use "`_tabledir'/litdiscover_doctopic.dta", clear"'
+    di as input `"  . use "`_tabledir'/litdiscover_coherence.dta", clear"'
+    di as input `"  . use "`_tabledir'/litdiscover_topic_by_field.dta", clear"'
+    di as txt _newline "To return to your input dataset:"
+    di as input `"  . use "`_input_recovery'", clear"'
+    di as txt "{hline 70}"
 end
