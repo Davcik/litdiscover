@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 The references that motivated specific design choices are cited in
 the help file (`help litdiscover`) under `References`.
 
-## [1.0] - 2026-05-15
+## [1.0] - 2026-05-17
 
 First public release.
 
