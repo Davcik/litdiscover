@@ -1,0 +1,28 @@
+* stata.toc
+*
+* Stata package directory file for the litdiscover repository.
+* Read by `net from` and used to drive the package-description page
+* shown to a user installing from this repository over HTTP.
+* See [R] net for the file format specification.
+
+v 1.0
+d litdiscover -- A Stata package for theory-aware literature review and discovery
+d
+d litdiscover combines latent Dirichlet allocation (LDA) topic
+d modelling of abstract text with a deductive overlay of the researcher-
+d coded construct fields (theory, dependent variable, independent
+d variable, moderator, mediator, decision, context, method, journal,
+d year). It produces topic-by-field cross-tabulations, TCCM and ADO
+d framework outputs, network-analytic measures over construct co-
+d occurrences, FREX exclusivity scores, per-topic stability
+d diagnostics, UMass coherence, and static and interactive
+d visualisations.
+d
+d Author: Nebojsa S. Davcik, EM Normandie Business School, Oxford, UK.
+d Email: davcik@live.com
+d ORCID: 0000-0003-1041-8788
+d
+d Licence: GPL-3.0-or-later
+d Repository: https://github.com/Davcik/litdiscover
+
+p litdiscover  litdiscover 1.0 (LDA topic modelling with deductive construct extraction)

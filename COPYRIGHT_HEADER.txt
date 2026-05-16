@@ -1,0 +1,20 @@
+litdiscover: A Stata package for theory-aware literature review and
+discovery.
+
+Copyright (C) 2026  Nebojsa S. Davcik
+EM Normandie Business School, Oxford, UK
+davcik@live.com
+ORCID: https://orcid.org/0000-0003-1041-8788
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 1.0 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.

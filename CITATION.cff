@@ -1,0 +1,66 @@
+# Citation File Format (CFF) for the litdiscover package.
+# Renders automatically in the GitHub repository sidebar ("Cite this
+# repository") and is ingested by reference managers such as Zotero,
+# Mendeley, and JabRef.
+# Spec: https://citation-file-format.github.io/
+
+cff-version: 1.2.0
+message: "If you use the litdiscover package in academic work, please cite it as below."
+type: software
+title: "litdiscover: A Stata package for theory-aware literature review and discovery"
+abstract: >-
+  litdiscover is a Stata package for systematic literature reviews
+  that combines latent Dirichlet allocation (LDA) topic modelling with
+  a deductive overlay of researcher-coded construct fields (theory,
+  dependent variable, independent variable, moderator, mediator,
+  decision, context, method, journal, year). It produces topic-by-field
+  cross-tabulations, TCCM and ADO framework outputs, network-analytic
+  measures over construct co-occurrences (degree, betweenness, Louvain
+  communities, modularity), FREX exclusivity scores (Roberts, Stewart,
+  and Tingley 2019), per-topic stability via Jaccard similarity across
+  random seeds (Greene, O'Callaghan, and Cunningham 2014), UMass
+  coherence diagnostics (Mimno et al. 2011), and a suite of static
+  figures and interactive HTML deliverables.
+version: 1.0
+date-released: 2026-05-15
+
+authors:
+  - family-names: "Davcik"
+    given-names: "Nebojsa S."
+    affiliation: "EM Normandie Business School, Oxford, UK"
+    email: "davcik@live.com"
+    orcid: "https://orcid.org/0000-0003-1041-8788"
+
+repository-code: "https://github.com/Davcik/litdiscover"
+url: "https://github.com/Davcik/litdiscover"
+
+keywords:
+  - "Stata"
+  - "literature review"
+  - "topic modelling"
+  - "latent Dirichlet allocation"
+  - "bibliometrics"
+  - "TCCM"
+  - "ADO"
+  - "FREX"
+  - "network analysis"
+  - "marketing research"
+  - "management research"
+
+license: "GPL-3.0-or-later"
+
+# Preferred-citation block: this is what reference managers render when
+# the package is cited. The CFF spec recommends a 'preferred-citation'
+# entry of type 'software' when the deliverable is the software itself.
+preferred-citation:
+  type: software
+  title: "litdiscover: A Stata package for theory-aware literature review and discovery using latent Dirichlet allocation"
+  authors:
+    - family-names: "Davcik"
+      given-names: "Nebojsa S."
+      affiliation: "EM Normandie Business School, Oxford, UK"
+      email: "davcik@live.com"
+      orcid: "https://orcid.org/0000-0003-1041-8788"
+  year: 2026
+  version: "1.0"
+  url: "https://github.com/Davcik/litdiscover"

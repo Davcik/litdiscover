@@ -1,0 +1,75 @@
+* litdiscover.pkg
+*
+* Stata package description file for litdiscover.
+* Read by `net describe litdiscover` and used to drive `net install
+* litdiscover` from this repository. See [R] net for the file format
+* specification.
+*
+* File-line conventions:
+*   d ...    description lines (free text, the first becomes the title)
+*   f file   install file 'file'; its destination is decided by suffix
+*   F file   install file 'file' into the system directories regardless
+*            of its suffix (used here for the Python helpers, dataset,
+*            and example/test do-files, which Stata would otherwise not
+*            know how to route)
+
+v 1.0
+d 'LITDISCOVER': module for theory-aware literature review and discovery
+d
+d litdiscover combines latent Dirichlet allocation (LDA) topic
+d modelling of abstract text with a deductive overlay of researcher-
+d coded construct fields (theory, dependent variable, independent
+d variable, moderator, mediator, decision, context, method, journal,
+d year). It produces topic-by-field cross-tabulations, TCCM and ADO
+d framework outputs, network-analytic measures (degree, betweenness,
+d Louvain communities, modularity) over construct co-occurrences,
+d FREX exclusivity scores, per-topic stability diagnostics via
+d Jaccard similarity across random seeds, UMass coherence diagnostics,
+d and a suite of static figures and interactive HTML deliverables
+d (pyLDAvis, pyvis, plotly Sankey) suitable for systematic literature
+d reviews in management, marketing, and adjacent fields.
+d
+d The short-form alias litdi forwards every argument to litdiscover.
+d
+d KW: literature review
+d KW: topic modelling
+d KW: latent Dirichlet allocation
+d KW: LDA
+d KW: bibliometrics
+d KW: TCCM
+d KW: ADO
+d KW: FREX
+d KW: network analysis
+d KW: text analysis
+d
+d Requires: Stata version 19.5
+d Requires: Python 3.10 or later configured for Stata (see help python)
+d Requires (figures option): SSC packages heatplot, palettes, colrspace
+d Requires (Python): pandas, numpy, scikit-learn, scipy, networkx
+d Requires (Python, figures): matplotlib, seaborn, wordcloud
+d Requires (Python, interactive): pyLDAvis, pyvis, plotly
+d
+d Distribution-Date: 20260515
+d
+d Author: Nebojsa S. Davcik
+d Affiliation: EM Normandie Business School, Oxford, UK
+d Email: davcik@live.com
+d ORCID: 0000-0003-1041-8788
+d
+d Licence: GPL-3.0-or-later
+d Repository: https://github.com/Davcik/litdiscover
+
+f litdiscover.ado
+f litdi.ado
+f litdiscover.sthlp
+F litdiscover.py
+F litdiscover_net.py
+F litdiscover_viz.py
+F litdiscover_example500.dta
+F litdiscover_examples_model.do
+F litdiscover_examples_model_log.do
+F test_v0.3.do
+F CHANGELOG.md
+F LICENSE
+F README.md
+F CITATION.cff
