@@ -9,11 +9,11 @@
 *   d ...    description lines (free text, the first becomes the title)
 *   f file   install file 'file'; its destination is decided by suffix
 *   F file   install file 'file' into the system directories regardless
-*            of its suffix (used here for the Python helpers, dataset,
-*            and example/test do-files, which Stata would otherwise not
-*            know how to route)
+*            of its suffix (used here for the Python helpers, the
+*            example dataset, and the user-facing Markdown documentation,
+*            which Stata would otherwise not know how to route)
 
-v 1.0
+v 3
 d 'LITDISCOVER': module for theory-aware literature review and discovery
 d
 d litdiscover combines latent Dirichlet allocation (LDA) topic
@@ -49,7 +49,7 @@ d Requires (Python): pandas, numpy, scikit-learn, scipy, networkx
 d Requires (Python, figures): matplotlib, seaborn, wordcloud
 d Requires (Python, interactive): pyLDAvis, pyvis, plotly
 d
-d Distribution-Date: 20260515
+d Distribution-Date: 20260517
 d
 d Author: Nebojsa S. Davcik
 d Affiliation: EM Normandie Business School, Oxford, UK
@@ -66,10 +66,8 @@ F litdiscover.py
 F litdiscover_net.py
 F litdiscover_viz.py
 F litdiscover_example500.dta
-F litdiscover_examples_model.do
-F litdiscover_examples_model_log.do
-F test_v0.3.do
 F CHANGELOG.md
 F LICENSE
 F README.md
+F USECASES.md
 F CITATION.cff
