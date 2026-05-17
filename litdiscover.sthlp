@@ -320,7 +320,7 @@ total documents (default 15). Topic labels include the top three terms.
 {pstd}
 Conditional returns:
 
-{synoptset 30}{...}
+{synoptset 60}{...}
 {synopt :{bf:r(years_min)} / {bf:r(years_max)}}only when {opt year()} is supplied{p_end}
 {synopt :{bf:r(N_}{it:field}{bf:)}}distinct values for each supplied construct field{p_end}
 {synopt :{bf:r(tccm_cells)} / {bf:r(tccm_minfreq)}}only when TCCM is emitted{p_end}
