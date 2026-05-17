@@ -2,8 +2,8 @@
 
 A Stata package for theory-aware literature review and discovery.
 
-`litdiscover` combines an inductive component — latent Dirichlet
-allocation (LDA) topic modelling of abstract text — with a deductive
+`litdiscover` combines an inductive component of the latent Dirichlet
+allocation (LDA) topic modelling of abstract text with a deductive
 overlay of researcher-coded construct fields (theory, dependent
 variable, independent variable, moderator, mediator, decision,
 context, method, journal, year). It produces topic-by-field
@@ -170,5 +170,5 @@ Issue reports, feature requests, and pull requests are welcome via
 the [GitHub issue tracker](https://github.com/Davcik/litdiscover/issues).
 For substantive proposals (new options, new output schemas, changes
 to the package's API), please open an issue for discussion before
-submitting a pull request, so the design can be agreed before
+submitting a pull request, so the design can be agreed upon before
 implementation.
