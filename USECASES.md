@@ -367,7 +367,7 @@ Stewart, and Tingley 2019). Compare the two rankings to see which
 terms are distinctive versus generic.
 
 **Interpretation.** Terms that rank high on weight but low on FREX are
-generic because they appear in many topics and are dominated by frequency alone.
+generic — they appear in many topics and dominate by frequency alone.
 Terms that rank high on both are the theory-distinctive vocabulary you
 want to feature when labelling topics or describing them in a paper.
 For a corpus with deliberately theory-specific anchors, FREX usually
@@ -416,38 +416,7 @@ are deterministically related, since rank is a function of weight.
 
 ---
 
-## Use case 11. How do I see all the output files my run produced?
-
-**Setup.** After a `litdiscover` run, you want a complete inventory of
-what was written.
-
-```stata
-use "C:\YOUR_FOLDER\litdiscover_example500.dta", clear
-litdiscover, abstract(abstract) theory(theory) dv(dv) iv(iv) context(context) method(method) topics(5) coherence netmeasures frex figures outdir(ex11_full)
-
-* The end-of-run summary printed to the Results window lists everything.
-* For a complete inventory of every file:
-shell dir /b "ex11_full\tables\" 2>nul
-shell dir /b "ex11_full\figures\" 2>nul
-```
-
-**What this produces.** The Results window already shows a friendly
-summary listing the principal tables produced and showing copy-paste
-`use` commands. The `shell dir` commands give an exhaustive directory
-listing if you need to see every file.
-
-**Interpretation.** A run with many options produces many output files.
-The `tables/` directory contains every `.dta` file; the `figures/`
-directory contains every static `.png` and `.gph`; the `interactive/`
-directory (if you also passed `interactive`) contains the three HTML
-files.
-
-**Note.** Every output file written by the package has a name prefixed
-with `litdiscover_` for easy identification.
-
----
-
-## Use case 12. How do I return to my input dataset after a run?
+## Use case 11. How do I return to my input dataset after a run?
 
 **Setup.** Because the package autoloads the topic-terms table by
 default, your original input dataset is no longer in memory. You want
@@ -474,7 +443,7 @@ summary and in `r(input_recovery_file)`. Option C suppresses the
 autoload for the next run.
 
 **Interpretation.** The autoload behaviour is designed for casual and
-interactive exploration where the first thing the researcher wants is
+interactive exploration, where the first thing the researcher wants is
 to inspect the topics. If you are running `litdiscover` inside a
 larger workflow that needs the input dataset to stay in memory, use
 `noautoload`.
