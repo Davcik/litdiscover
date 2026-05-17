@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 1.0  15may2026}{...}
+{* *! version 1.0  17may2026}{...}
 {cmd:help litdiscover}
 {hline}
 
@@ -107,8 +107,7 @@ complementary framework-oriented views aligned with current best practice
 in business-school literature reviews.
 
 {pstd}
-The {opt figures} and {opt interactive} flags introduced in Block A.5
-produce publication-ready visualisations: Stata-native graphs (.gph and
+The {opt figures} and {opt interactive} flags produce publication-ready visualisations: Stata-native graphs (.gph and
 .png) via {bf:heatplot} ({help litdiscover##jann2018:Jann 2018};
 {help litdiscover##jann2023:Jann 2023}), Python-side static figures
 (.png), and three interactive HTML files for online supplementary
@@ -147,9 +146,7 @@ The package supports two output layouts.
 {p 8 8 2}
 When {opt outdir()} is omitted, all outputs (tables, figures, and HTML
 files) are written to a single flat directory named by {opt export()}.
-{opt export()} defaults to {bf:"output"}. This is the Block A layout and
-ensures that every Block A call continues to produce the same file
-arrangement.{p_end}
+{opt export()} defaults to {bf:"output"}.{p_end}
 
 {phang2}{bf:Subdirectory layout}{p_end}
 {p 8 8 2}
