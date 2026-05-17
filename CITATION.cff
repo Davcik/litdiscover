@@ -22,7 +22,7 @@ abstract: >-
   coherence diagnostics (Mimno et al. 2011), and a suite of static
   figures and interactive HTML deliverables.
 version: 1.0
-date-released: 2026-05-15
+date-released: 2026-05-17
 
 authors:
   - family-names: "Davcik"
@@ -54,7 +54,7 @@ license: "GPL-3.0-or-later"
 # entry of type 'software' when the deliverable is the software itself.
 preferred-citation:
   type: software
-  title: "litdiscover: A Stata package for theory-aware literature review and discovery using latent Dirichlet allocation"
+  title: "litdiscover: A Stata package for theory-aware literature review and discovery"
   authors:
     - family-names: "Davcik"
       given-names: "Nebojsa S."
