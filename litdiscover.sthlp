@@ -320,7 +320,7 @@ total documents (default 15). Topic labels include the top three terms.
 {pstd}
 Conditional returns:
 
-{synoptset 26}{...}
+{synoptset 30}{...}
 {synopt :{bf:r(years_min)} / {bf:r(years_max)}}only when {opt year()} is supplied{p_end}
 {synopt :{bf:r(N_}{it:field}{bf:)}}distinct values for each supplied construct field{p_end}
 {synopt :{bf:r(tccm_cells)} / {bf:r(tccm_minfreq)}}only when TCCM is emitted{p_end}
@@ -329,12 +329,12 @@ Conditional returns:
 {synopt :{bf:r(net_networks_within)} / {bf:r(net_networks_cross)}}counts of networks built; only with {opt netmeasures}{p_end}
 {synopt :{bf:r(net_nodes_within)} / {bf:r(net_nodes_cross)}}row counts of the two network-measures files{p_end}
 {synopt :{bf:r(net_modularity_mean)} / {bf:r(net_modularity_min)} / {bf:r(net_modularity_max)}}summary statistics of within-field network modularity{p_end}
-{synopt :{bf:r(net_louvain_seed)}}seed used for Louvain community detection (fixed at 20250101){p_end}
+{synopt :{bf:r(net_louvain_seed)}}seed used for Louvain community detection {p_end}
 {synopt :{bf:r(network_measures_file)} / {bf:r(network_measures_cross_file)}}absolute paths to the two output files{p_end}
-{synopt :{bf:r(topic_stability_file)}}absolute path to {bf:litdiscover_topic_stability.dta} (only when {opt seeds()} > 1; v0.3.1){p_end}
-{synopt :{bf:r(topicterms_file)}}absolute path to {bf:litdiscover_topicterms.dta} (the table autoloaded into memory by default; v1.0){p_end}
-{synopt :{bf:r(input_recovery_file)}}absolute path to the saved copy of the input dataset; use with {helpb use} to restore the input data (v1.0){p_end}
-{synopt :{bf:r(frex_omega)} / {bf:r(frex_epsilon)}}FREX parameters (fixed at 0.5 and 1e-12); only with {opt frex}{p_end}
+{synopt :{bf:r(topic_stability_file)}}absolute path to {bf:litdiscover_topic_stability.dta} (only when {opt seeds()} > 1){p_end}
+{synopt :{bf:r(topicterms_file)}}absolute path to {bf:litdiscover_topicterms.dta} (the table autoloaded into memory by default){p_end}
+{synopt :{bf:r(input_recovery_file)}}absolute path to the saved copy of the input dataset; use with {helpb use} to restore the input data {p_end}
+{synopt :{bf:r(frex_omega)} / {bf:r(frex_epsilon)}}FREX parameters; only with {opt frex}{p_end}
 {synopt :{bf:r(frex_topics)} / {bf:r(frex_vocab_size)}}counts used in the FREX ECDFs{p_end}
 {p2colreset}{...}
 
