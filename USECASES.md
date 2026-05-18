@@ -1,12 +1,12 @@
 # litdiscover: Use cases for researchers
 
-This guide presents twelve use cases for the `litdiscover` package, each
+This guide presents elevn use cases for the `litdiscover` package, each
 framed as a research question that a researcher
 might ask. Every use case provides copy-paste-ready Stata commands, a
 short note on what the output means, and where appropriate a methodological
 caveat.
 
-The guide assumes you have already installed the package
+The guide assumes that a researcher has already installed the package
 (`net install litdiscover, from("https://raw.githubusercontent.com/Davcik/litdiscover/main/")`)
 and have the example dataset `litdiscover_example500.dta` in your
 working directory.
@@ -367,7 +367,7 @@ Stewart, and Tingley 2019). Compare the two rankings to see which
 terms are distinctive versus generic.
 
 **Interpretation.** Terms that rank high on weight but low on FREX are
-generic — they appear in many topics and dominate by frequency alone.
+generic because they appear in many topics and are dominated by frequency alone.
 Terms that rank high on both are the theory-distinctive vocabulary you
 want to feature when labelling topics or describing them in a paper.
 For a corpus with deliberately theory-specific anchors, FREX usually
@@ -443,7 +443,7 @@ summary and in `r(input_recovery_file)`. Option C suppresses the
 autoload for the next run.
 
 **Interpretation.** The autoload behaviour is designed for casual and
-interactive exploration, where the first thing the researcher wants is
+interactive exploration where the first thing the researcher wants is
 to inspect the topics. If you are running `litdiscover` inside a
 larger workflow that needs the input dataset to stay in memory, use
 `noautoload`.
@@ -471,7 +471,7 @@ references are:
 - Paul, J., Khatri, P., and Duggal, H. K. 2024. Frameworks for
   developing impactful systematic literature reviews and theory
   building: What, Why and How? *Journal of Decision Systems*
-  33(4): 101717.
+  33(4): 537-550.
 - Roberts, M. E., Stewart, B. M., and Tingley, D. 2019. stm: An R
   package for structural topic models. *Journal of Statistical
   Software* 91(2): 1–40.
