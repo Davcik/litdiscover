@@ -126,7 +126,7 @@ First public release.
 - UMass coherence diagnostic (Mimno et al. 2011) via the
   `coherence` toggle.
 - Multi-seed Jaccard stability across LDA fits via `seeds(K)`.
-- Construct extraction for the TCCM (Paul and Criado 2020) and ADO
+- Construct extraction for the TCCM (Paul et al. 2024) and ADO
   frameworks: theory, dependent variable, independent variable,
   moderator, mediator, decision, context, method, journal, year.
 
