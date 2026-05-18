@@ -433,7 +433,7 @@ Mimno, D., Wallach, H. M., Talley, E., Leenders, M., and McCallum, A.
 {marker paul2024}{...}
 {phang}
 Paul, J., Khatri, P. and Duggal, H. K. 2024. Frameworks for developing impactful systematic literature reviews and theory building: What, Why and How?
-{it:Journal of Decision Systems} 33(4): 101717.
+{it:Journal of Decision Systems} 33(4): 537–550.
 https://doi.org/10.1080/12460125.2023.2197700
 
 {marker roberts2019}{...}
