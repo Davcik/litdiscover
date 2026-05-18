@@ -27,7 +27,7 @@ d FREX exclusivity scores, per-topic stability diagnostics via
 d Jaccard similarity across random seeds, UMass coherence diagnostics,
 d and a suite of static figures and interactive HTML deliverables
 d (pyLDAvis, pyvis, plotly Sankey) suitable for systematic literature
-d reviews in management, marketing, and adjacent fields.
+d reviews in social sciences, management, marketing, and adjacent fields.
 d
 d The short-form alias litdi forwards every argument to litdiscover.
 d
