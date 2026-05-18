@@ -159,7 +159,7 @@ program define litdiscover, rclass
     }
 
     /* -----------------------------------------------------------------
-       Block C (v0.3): resolve netscript path if netmeasures is set.
+       Block C: resolve netscript path if netmeasures is set.
        -----------------------------------------------------------------
     */
     if "`netmeasures'" != "" {
@@ -320,7 +320,7 @@ program define litdiscover, rclass
 
     /* Single outer preserve covers the entire body. Any exit (normal or
        error) automatically restores the user's session data. Inside the
-       preserve we use tempfiles for state management; no nested preserve.
+       preserve, we use tempfiles for state management; no nested preserve.
     */
     preserve
 
@@ -406,7 +406,7 @@ program define litdiscover, rclass
 
        Pattern: NO preserve at all. State managed via tempfiles. We
        reload userdata_orig fresh, build all intermediate tempfiles, and
-       write outputs directly to `_tabledir'. At the end we restore the
+       write outputs directly to `_tabledir'. At the end, we restore the
        user's original data via the outer preserve already in scope.
        -----------------------------------------------------------------
     */
@@ -794,7 +794,7 @@ program define litdiscover, rclass
     }
 
     /* -----------------------------------------------------------------
-       Step 4i (Block C, v0.3): netmeasures
+       Step 4i (Block C): netmeasures
 
        Runs only when (i) the netmeasures toggle is set, and (ii) at
        least one construct field was supplied, since both cooc tables
@@ -1005,9 +1005,9 @@ program define litdiscover, rclass
     }
 
     /* -----------------------------------------------------------------
-       Step 5b (Block A.5): Python-tier figures and interactive HTMLs
+       Step 5b: Python-tier figures and interactive HTMLs
 
-       Single python script call (litdiscover_viz.py). The viz script reads
+       Single Python script call (litdiscover_viz.py). The viz script reads
        locals describing what to produce, the corpus CSV path, LDA params
        for the deterministic re-fit, and the table-directory path. It emits
        to _figdir and _intdir. Output paths are returned via additional
@@ -1145,7 +1145,7 @@ program define litdiscover, rclass
     }
 
     /* -----------------------------------------------------------------
-       Block C (v0.3) returns: netmeasures
+       Block C returns: netmeasures
        -----------------------------------------------------------------
     */
     return scalar net_networks_within = real("`net_networks_within'")
@@ -1171,7 +1171,7 @@ program define litdiscover, rclass
     return local topic_stability_file "`_topic_stability_file'"
 
     /* -----------------------------------------------------------------
-       Block B (v0.3) returns: frex
+       Block B returns: frex
        -----------------------------------------------------------------
     */
     if "`frex_omega'" != "" {
@@ -1194,12 +1194,12 @@ program define litdiscover, rclass
        casual interactive researcher:
 
        (1) Save the user's original input dataset to a recoverable
-           location (the existing tempfile dies at end of session;
+           location (the existing tempfile dies at the end of the session;
            we copy it to a stable path inside the tables directory).
        (2) Print a friendly summary to the Results window with
            copy-paste-ready use commands for every output file.
        (3) Unless noautoload was set, load litdiscover_topicterms.dta
-           into memory so list/tabulate/graph work without a use step.
+           into memory, so list/tabulate/graph work without a use step.
 
        Returned macros r(topicterms_file) and r(input_recovery_file)
        expose paths for scripted workflows.
