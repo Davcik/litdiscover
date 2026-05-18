@@ -69,11 +69,9 @@ ADO frameworks, FREX exclusivity scoring, network-analytic measures
 on construct co-occurrences, and the full publication-ready pipeline
 with static figures and interactive HTML — see:
 
+- [`litdiscover_examples_model.do`](litdiscover_examples_model.do)
+  in this repository
 - The documentation: `help litdiscover` inside Stata
-
-For a researcher-oriented walkthrough of twelve common use cases —
-labelling topics, year stratification, network analysis, regression on
-topic shares, and more — see [USECASES.md](USECASES.md).
 
 ---
 
@@ -160,13 +158,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 **Nebojsa S. Davcik**
 EM Normandie Business School, Oxford, UK
 ORCID: [0000-0003-1041-8788](https://orcid.org/0000-0003-1041-8788)
-Email: davcik {@} live.com
+Email: davcik@live.com
 
 ---
 
 ## Contributing
 
-Issue reports, feature requests, and pull requests are welcome via
+Issue reports and feature requests are welcome via
 the [GitHub issue tracker](https://github.com/Davcik/litdiscover/issues).
 For substantive proposals (new options, new output schemas, changes
 to the package's API), please open an issue for discussion before
