@@ -1,4 +1,4 @@
-"""litdiscover.py  v0.3.1  15may2026
+"""litdiscover.py  v1.0  15may2026
 
 Copyright (C) 2026  Nebojsa S. Davcik, EM Normandie Business School.
 Email: davcik@live.com.  ORCID: 0000-0003-1041-8788.
@@ -128,7 +128,7 @@ key_out = pd.DataFrame(key_rows)
 # Computed only when the Stata local dofrex == "1". When the toggle is
 # off, the keyword CSV is byte-identical to v0.2 (no 'frex' column).
 #
-# Algorithm (Roberts, Stewart, and Tingley 2019, section 3.4):
+# Algorithm (Roberts, Stewart, and Tingley 2019):
 #   beta_{k,v}  = row-normalised comp[k, v]  (topic-term probability)
 #   f_{k,v}     = beta_{k,v}                 (frequency component)
 #   e_{k,v}     = beta_{k,v} / (sum_{k'} beta_{k',v} + epsilon)

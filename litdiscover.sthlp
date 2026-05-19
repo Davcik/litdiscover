@@ -363,7 +363,7 @@ Conditional returns:
 {title:Requirements}
 
 {pstd}
-Stata 19.5 or later, with Python 3 configured for use via {help python}.
+Stata 19 or later, with Python 3 configured for use via {help python}.
 
 {pstd}
 The base Python script {bf:litdiscover.py} requires {bf:pandas},

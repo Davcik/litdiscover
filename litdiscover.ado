@@ -1,4 +1,4 @@
-*! litdiscover 1.0  15may2026
+*! litdiscover 1.0  17may2026
 *! LDA topic modelling with deductive construct extraction for systematic
 *! literature reviews.
 *!
@@ -22,7 +22,7 @@
 capture program drop litdiscover
 
 program define litdiscover, rclass
-    version 19.5
+    version 19
 
     syntax , ABSTRACT(varname) [ ID(varname) YEAR(varname) THEORY(varname) DV(varname) IV(varname) MOD(varname) MED(varname) DECISION(varname) JOURNAL(varname) CONTEXT(varname) METHOD(varname) TCCMclass(string) TCCMminfreq(integer 1) SEP(string) TOPICS(integer 5) SEEDS(integer 1) COHERENCE SEED(integer 12345) MINFREQ(integer 1) MAXDF(real 1.0) NGRAM(integer 1) SCRIPT(string) EXPORT(string) KEEPTEMP OUTDIR(string) FIGURES INTERACTIVE SANKEYTOPFREQ(integer 15) VIZSCRIPT(string) NETMEASURES FREX NETSCRIPT(string) NOAUTOload ]
 
@@ -192,7 +192,7 @@ program define litdiscover, rclass
     /* -----------------------------------------------------------------
        Stata-side dependency check for figures: heatplot and palettes
 
-       Hard-fail with clear message; no graceful degradation.
+       Hard-fail with a clear message; no graceful degradation.
        -----------------------------------------------------------------
     */
     if "`figures'" != "" {

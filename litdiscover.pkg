@@ -42,7 +42,7 @@ d KW: FREX
 d KW: network analysis
 d KW: text analysis
 d
-d Requires: Stata version 19.5
+d Requires: Stata version 19
 d Requires: Python 3.10 or later configured for Stata (see help python)
 d Requires (figures option): SSC packages heatplot, palettes, colrspace
 d Requires (Python): pandas, numpy, scikit-learn, scipy, networkx

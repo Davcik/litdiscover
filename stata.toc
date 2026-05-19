@@ -5,7 +5,7 @@
 * shown to a user installing from this repository over HTTP.
 * See [R] net for the file format specification.
 
-v 1.0
+v 3
 d litdiscover -- A Stata package for theory-aware literature review and discovery
 d
 d litdiscover combines latent Dirichlet allocation (LDA) topic
