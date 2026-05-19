@@ -1,6 +1,6 @@
 # litdiscover
 
-A Stata package for theory-aware literature review and discovery.
+A Stata package for theory-aware literature review, analysis, and discovery.
 
 `litdiscover` combines latent Dirichlet allocation (LDA) topic
 modelling of abstract text with a deductive overlay of researcher-coded
