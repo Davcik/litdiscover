@@ -26,17 +26,6 @@ First public release.
   (resource-based view, dynamic capabilities, signalling theory,
   institutional theory, stakeholder theory) and ten marketing and
   management journals.
-- A seven-example companion script (`litdiscover_examples_model.do`)
-  demonstrating the principal capabilities of the package, with
-  Stata Journal-style research-question framing and post-run
-  interpretation for each example.
-- An SMCL log wrapper (`litdiscover_examples_model_log.do`) that runs
-  the examples script under a log and translates the result to plain
-  text and PDF for inclusion in articles.
-- A test harness (`test_v0.3.do`) covering 92 assertions across
-  backward compatibility, network-analytic measures, FREX, per-topic
-  stability, and joint-toggle invocation, with a machine-readable
-  assertion log (CSV) for regression tracking across versions.
 
 ## [0.3.1] - 2026-05-13
 
