@@ -104,7 +104,9 @@ The deductive-inductive bridge is exposed primarily through
 each topic within each (field, value) cell, along with the number of
 documents contributing to that cell. The TCCM and ADO tables provide
 complementary framework-oriented views aligned with current best practice
-in business-school literature reviews.
+in systematic literature reviews across management, marketing,
+organisation studies, information systems, education, health policy,
+and the broader social and behavioural sciences.
 
 {pstd}
 The {opt figures} and {opt interactive} flags produce publication-ready visualisations: Stata-native graphs (.gph and
@@ -363,7 +365,7 @@ Conditional returns:
 {title:Requirements}
 
 {pstd}
-Stata 19 or later, with Python 3 configured for use via {help python}.
+Stata 19.5 or later, with Python 3 configured for use via {help python}.
 
 {pstd}
 The base Python script {bf:litdiscover.py} requires {bf:pandas},
@@ -471,7 +473,7 @@ Email: {browse "mailto:davcik@live.com":davcik@live.com}
 When citing {cmd:litdiscover} in academic work, please use:
 
 {phang2}
-Davcik, N. S. 2026. {it:litdiscover: A Stata package for theory-aware literature review and discovery.}
+Davcik, N. S. 2026. {it:litdiscover: A Stata package for theory-aware literature review, analysis, and discovery.}
 Available at: {browse "https://github.com/Davcik/litdiscover":https://github.com/Davcik/litdiscover}
 
 

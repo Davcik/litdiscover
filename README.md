@@ -1,6 +1,7 @@
 # litdiscover
 
-A Stata package for theory-aware literature review, analysis, and discovery.
+A Stata package for theory-aware literature review, analysis, and
+discovery.
 
 `litdiscover` combines latent Dirichlet allocation (LDA) topic
 modelling of abstract text with a deductive overlay of researcher-coded
@@ -10,8 +11,10 @@ produces topic-by-field cross-tabulations, TCCM and ADO framework
 outputs, network-analytic measures over construct co-occurrences,
 FREX exclusivity scores, per-topic stability diagnostics, UMass
 coherence, and a suite of static figures and interactive HTML
-deliverables, suitable for systematic literature reviews in the
-social sciences, management, marketing, and adjacent fields.
+deliverables. The package is designed for systematic literature
+reviews across management, marketing, organisation studies,
+information systems, education, health policy, and the broader
+social and behavioural sciences.
 
 The short-form alias `litdi` is provided as a convenience.
 
@@ -75,7 +78,7 @@ replace it with your own coded corpus.
 When citing `litdiscover` in academic work, please use:
 
 > Davcik, N. S. 2026. *litdiscover: A Stata package for theory-aware
-> literature review and discovery.* Available at:
+> literature review, analysis, and discovery.* Available at:
 > [https://github.com/Davcik/litdiscover](https://github.com/Davcik/litdiscover)
 
 A [CITATION.cff](CITATION.cff) file is provided in the repository

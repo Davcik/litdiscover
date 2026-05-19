@@ -314,5 +314,5 @@ References. Key sources:
 When citing `litdiscover` in academic work, please use:
 
 Davcik, N. S. 2026. *litdiscover: A Stata package for theory-aware
-literature review and discovery.* Available at:
+literature review, analysis, and discovery.* Available at:
 https://github.com/Davcik/litdiscover

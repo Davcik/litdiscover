@@ -14,7 +14,7 @@
 *            which Stata would otherwise not know how to route)
 
 v 3
-d 'LITDISCOVER': module for theory-aware literature review and discovery
+d 'LITDISCOVER': module for theory-aware literature review, analysis, and discovery
 d
 d litdiscover combines latent Dirichlet allocation (LDA) topic
 d modelling of abstract text with a deductive overlay of researcher-
@@ -26,8 +26,10 @@ d Louvain communities, modularity) over construct co-occurrences,
 d FREX exclusivity scores, per-topic stability diagnostics via
 d Jaccard similarity across random seeds, UMass coherence diagnostics,
 d and a suite of static figures and interactive HTML deliverables
-d (pyLDAvis, pyvis, plotly Sankey) suitable for systematic literature
-d reviews in social sciences, management, marketing, and adjacent fields.
+d (pyLDAvis, pyvis, plotly Sankey). Designed for systematic literature
+d reviews across management, marketing, organisation studies,
+d information systems, education, health policy, and the broader
+d social and behavioural sciences.
 d
 d The short-form alias litdi forwards every argument to litdiscover.
 d

@@ -7,7 +7,7 @@
 cff-version: 1.2.0
 message: "If you use the litdiscover package in academic work, please cite it as below."
 type: software
-title: "litdiscover: A Stata package for theory-aware literature review and discovery"
+title: "litdiscover: A Stata package for theory-aware literature review, analysis, and discovery"
 abstract: >-
   litdiscover is a Stata package for systematic literature reviews
   that combines latent Dirichlet allocation (LDA) topic modelling with
@@ -20,7 +20,10 @@ abstract: >-
   and Tingley 2019), per-topic stability via Jaccard similarity across
   random seeds (Greene, O'Callaghan, and Cunningham 2014), UMass
   coherence diagnostics (Mimno et al. 2011), and a suite of static
-  figures and interactive HTML deliverables.
+  figures and interactive HTML deliverables. Designed for systematic
+  literature reviews across management, marketing, organisation
+  studies, information systems, education, health policy, and the
+  broader social and behavioural sciences.
 version: 1.0
 date-released: 2026-05-17
 
@@ -57,7 +60,7 @@ license: "GPL-3.0-or-later"
 # entry of type 'software' when the deliverable is the software itself.
 preferred-citation:
   type: software
-  title: "litdiscover: A Stata package for theory-aware literature review and discovery"
+  title: "litdiscover: A Stata package for theory-aware literature review, analysis, and discovery"
   authors:
     - family-names: "Davcik"
       given-names: "Nebojsa S."
