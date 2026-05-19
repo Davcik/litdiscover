@@ -1,6 +1,6 @@
 # litdiscover
 
-A Stata package for theory-aware literature review and discovery.
+A Stata package for theory-aware literature review, analysis and discovery.
 
 `litdiscover` combines an inductive component of the latent Dirichlet
 allocation (LDA) topic modelling of abstract text with a deductive
@@ -69,7 +69,7 @@ ADO frameworks, FREX exclusivity scoring, network-analytic measures
 on construct co-occurrences, and the full publication-ready pipeline
 with static figures and interactive HTML — see:
 
-- [`USECASES.md`](USECASES.md)
+- [`litdiscover_examples_model.do`](litdiscover_examples_model.do)
   in this repository
 - The documentation: `help litdiscover` inside Stata
 
