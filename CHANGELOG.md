@@ -19,92 +19,54 @@ First public release.
   alias `litdi`.
 - Full documentation in `litdiscover.sthlp`, including Author,
   Citation, Licence, and References sections.
-- GPL-3.0-or-later licensing, with `LICENSE` and `CITATION.cff` files
-  in the repository root.
+- GPL-3.0-or-later licensing, with `LICENSE` and `CITATION.cff`.
 - A 500-observation synthetic example dataset
-  (`litdiscover_example500.dta`) covering five theoretical perspectives
-  (resource-based view, dynamic capabilities, signalling theory,
-  institutional theory, stakeholder theory) and ten marketing and
-  management journals.
+  (`litdiscover_example500.dta`).
 
 ## [0.3.1] - 2026-05-13
 
 ### Added in 0.3.1
 
-- Per-topic LDA stability measurement. When `seeds(K)` with K >= 2,
-  the package now writes `litdiscover_topic_stability.dta` with
-  columns `topic`, `mean_best_match`, `min_best_match`,
-  `n_seed_pairs`. For each topic in the primary seed, these capture
-  the mean and minimum best-match Jaccard similarity to the matched
-  topics in each of the other K-1 seeds (via the Hungarian assignment
-  already used for the pairwise stability table). Closes a gap for
-  combined coherence-plus-stability diagnostics in line with
-  Greene, O'Callaghan, and Cunningham (2014).
-- New `r(topic_stability_file)` macro pointing to the new file.
-
-### Unchanged in 0.3.1
-
-- `litdiscover_stability.dta` (pairwise) schema and contents.
-- All v0.3.0 toggles and outputs.
+- Per-topic LDA stability via Jaccard similarity across random seeds.
+  When `seeds(K)` with K >= 2, the package writes
+  `litdiscover_topic_stability.dta` (columns `topic`,
+  `mean_best_match`, `min_best_match`, `n_seed_pairs`). Complements
+  pairwise stability for combined coherence-plus-stability diagnostics
+  (Greene, O'Callaghan, and Cunningham 2014).
+- New `r(topic_stability_file)` macro.
 
 ## [0.3.0] - 2026-05-10
 
 ### Added in 0.3.0
 
-- `netmeasures` toggle. Computes degree centrality, weighted strength,
-  betweenness centrality, Louvain community assignment, and
-  modularity over the `cooc_within` and `cooc_cross` construct
-  co-occurrence tables. Produces two new files
-  (`litdiscover_network_measures.dta` and
-  `litdiscover_network_measures_cross.dta`) with one row per node.
-  Louvain communities use seed 20250101 and resolution 1.0.
-- `frex` toggle. Adds a `frex` column to
-  `litdiscover_topicterms.dta` containing the FREX
-  (FRequency-EXclusivity) score per Roberts, Stewart, and Tingley
-  (2019, section 3.4), with omega = 0.5 (the stm default) and an
-  empirical CDF computed per topic over the full vocabulary.
-- New helper script `litdiscover_net.py` for the network-analytic
-  computations.
-- New `r()` returns: `r(net_networks_within)`,
-  `r(net_networks_cross)`, `r(net_nodes_within)`,
-  `r(net_nodes_cross)`, `r(net_modularity_mean)`,
-  `r(net_modularity_min)`, `r(net_modularity_max)`,
-  `r(net_louvain_seed)`, `r(network_measures_file)`,
-  `r(network_measures_cross_file)`, `r(frex_omega)`,
-  `r(frex_epsilon)`, `r(frex_topics)`, `r(frex_vocab_size)`.
-
-### Unchanged in 0.3.0
-
-- v0.2 was strictly additive; every v0.2 test continued to pass
-  byte-for-byte when neither new toggle was supplied.
+- `netmeasures` toggle: degree centrality, weighted strength,
+  betweenness centrality, Louvain communities, and modularity over
+  the construct co-occurrence tables. Produces
+  `litdiscover_network_measures.dta` and
+  `litdiscover_network_measures_cross.dta` (one row per node).
+  Louvain seed 20250101, resolution 1.0.
+- `frex` toggle: adds a `frex` column to
+  `litdiscover_topicterms.dta` (Roberts, Stewart, and Tingley 2019,
+  section 3.4; omega = 0.5, empirical CDF per topic).
+- Helper script `litdiscover_net.py` for network computations.
+- New `r()` returns for network and FREX scalars and file paths.
 
 ## [0.2.6] - 2026-05-03
 
 ### Added in 0.2.6
 
-- `figures` toggle for static visualisations. Stata-tier figures use
-  `heatplot` and `palettes` (both SSC; Jann 2018, 2023). Python-tier
-  figures use matplotlib, seaborn, and wordcloud.
-- `interactive` toggle for three HTML deliverables:
-  - pyLDAvis topic explorer (Sievert and Shirley 2014).
-  - pyvis force-directed construct co-occurrence network.
-  - plotly Sankey diagram mapping theories to topics.
+- `figures` toggle for static visualisations (Stata-tier via
+  `heatplot` and `palettes`; Python-tier via matplotlib, seaborn,
+  wordcloud).
+- `interactive` toggle for three HTML deliverables: pyLDAvis topic
+  explorer (Sievert and Shirley 2014), pyvis force-directed
+  co-occurrence network, plotly Sankey diagram.
 - `outdir()` option for a subdirectory layout (tables, figures,
-  interactive) that simplifies article supplementary materials.
-- pyLDAvis-ready compressed NumPy interchange file containing the
-  five arrays required by `pyLDAvis.prepare`, derived from the
-  primary-seed model so the visualisation is mathematically
-  guaranteed to match the `.dta` outputs.
+  interactive).
+- pyLDAvis-ready compressed NumPy interchange file derived from the
+  primary-seed model, so the visualisation matches the `.dta`
+  outputs.
 - Helper script `litdiscover_viz.py` for Python-side visualisations.
-
-### Architectural constraints introduced in 0.2.6
-
-- Python integration via Stata `python script`, not shell.
-- Construct extraction performed in Stata (not delegated to Python).
-- `study_id` carried as a string throughout.
-- Single outer `preserve` with tempfile-based state; no nested
-  `preserve` blocks.
-- No `///` line continuations anywhere in the package source.
 
 ## [0.2.0] - 2026-04-19
 
@@ -112,13 +74,12 @@ First public release.
 
 - Block A baseline: LDA engine in `litdiscover.py`, called from
   `litdiscover.ado`.
-- UMass coherence diagnostic (Mimno et al. 2011) via the
-  `coherence` toggle.
+- UMass coherence (Mimno et al. 2011) via the `coherence` toggle.
 - Multi-seed Jaccard stability across LDA fits via `seeds(K)`.
 - Construct extraction for the TCCM (Paul et al. 2024) and ADO
   frameworks: theory, dependent variable, independent variable,
   moderator, mediator, decision, context, method, journal, year.
 
-## [0.1] - earlier development - 2026-03-15
+## [0.1] - 2026-03-15
 
 Internal development. Not publicly released.

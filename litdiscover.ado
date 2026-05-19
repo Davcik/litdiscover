@@ -1210,6 +1210,11 @@ program define litdiscover, rclass
 
     /* Step (1): save the input dataset to a stable path for recovery. */
     qui use `userdata_orig', clear
+    capture drop __*
+    capture confirm string variable study_id
+    if _rc {
+        tostring study_id, replace
+    }
     qui save `"`_input_recovery'"', replace
 
     return local topicterms_file      `"`_topicterms_file'"'
