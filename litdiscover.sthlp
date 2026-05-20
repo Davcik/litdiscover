@@ -59,23 +59,33 @@ default is {bf:dv} when {opt dv()} is supplied{p_end}
 
 {syntab:File handling}
 {synopt :{opt script(string)}}path to {bf:litdiscover.py}; if omitted, located via findfile{p_end}
-{synopt :{opt export(string)}}flat output directory; default {bf:"output"}; mutually exclusive with {opt outdir()}{p_end}
-{synopt :{opt outdir(string)}}root output directory with the subdirectory layout {bf:./root/tables/}, {bf:./root/figures/}, {bf:./root/interactive/}; mutually exclusive with {opt export()}{p_end}
+{synopt :{opt export(string)}}flat output directory; default {bf:"output"};{...}
+ mutually exclusive with {opt outdir()}{p_end}
+{synopt :{opt outdir(string)}}root output directory with the subdirectory layout{...}
+ {bf:./root/tables/}, {bf:./root/figures/}, {bf:./root/interactive/};{...}
+ mutually exclusive with {opt export()}{p_end}
 {synopt :{opt keeptemp}}retain the intermediate corpus CSV{p_end}
 
 {syntab:Visualisation}
-{synopt :{opt figures}}produce static figures (Stata-tier via {bf:heatplot}/{bf:palettes}; Python-tier via {bf:matplotlib}/{bf:seaborn}/{bf:wordcloud}){p_end}
+{synopt :{opt figures}}produce static figures (Stata-tier via {bf:heatplot}/{bf:palettes};{...}
+ Python-tier via {bf:matplotlib}/{bf:seaborn}/{bf:wordcloud}){p_end}
 {synopt :{opt interactive}}produce three interactive HTML deliverables (pyLDAvis, pyvis network, plotly Sankey){p_end}
-{synopt :{opt sankeytopfreq(#)}}truncate theory nodes in the Sankey diagram to the top {it:#} by total documents; default {bf:15}{p_end}
+{synopt :{opt sankeytopfreq(#)}}truncate theory nodes in the Sankey diagram to the top {it:#}{...}
+ by total documents; default {bf:15}{p_end}
 {synopt :{opt vizscript(string)}}path to {bf:litdiscover_viz.py}; if omitted, located via findfile{p_end}
 
 {syntab:Network and exclusivity measures}
-{synopt :{opt netmeasures}}compute network-analytic measures (degree centrality, betweenness centrality, modularity, Louvain communities) over the within-field and cross-field construct co-occurrence tables; requires at least one construct field{p_end}
-{synopt :{opt frex}}add a {bf:frex} column to {bf:litdiscover_topicterms.dta} containing the FREX (FRequency-EXclusivity) score per Roberts, Stewart, and Tingley (2019){p_end}
+{synopt :{opt netmeasures}}compute network-analytic measures (degree centrality,{...}
+ betweenness centrality, modularity, Louvain communities) over the within-field{...}
+ and cross-field construct co-occurrence tables; requires at least one construct field{p_end}
+{synopt :{opt frex}}add a {bf:frex} column to {bf:litdiscover_topicterms.dta}{...}
+ containing the FREX (FRequency-EXclusivity) score per Roberts, Stewart, and Tingley (2019){p_end}
 {synopt :{opt netscript(string)}}path to {bf:litdiscover_net.py}; if omitted, located via findfile{p_end}
 
 {syntab:Interactive behaviour}
-{synopt :{opt noautoload}}suppress the default of loading {bf:litdiscover_topicterms.dta} into memory at the end of the run; preserves the input dataset in memory instead{p_end}
+{synopt :{opt noautoload}}suppress the default of loading{...}
+ {bf:litdiscover_topicterms.dta} into memory at the end of the run;{...}
+ preserves the input dataset in memory instead{p_end}
 {synoptline}
 
 
@@ -104,9 +114,7 @@ The deductive-inductive bridge is exposed primarily through
 each topic within each (field, value) cell, along with the number of
 documents contributing to that cell. The TCCM and ADO tables provide
 complementary framework-oriented views aligned with current best practice
-in systematic literature reviews across management, marketing,
-organisation studies, information systems, education, health policy,
-and the broader social and behavioural sciences.
+in business-school literature reviews.
 
 {pstd}
 The {opt figures} and {opt interactive} flags produce publication-ready visualisations: Stata-native graphs (.gph and
@@ -328,14 +336,20 @@ Conditional returns:
 {synopt :{bf:r(tccm_cells)} / {bf:r(tccm_minfreq)}}only when TCCM is emitted{p_end}
 {synopt :{bf:r(tccm_class_field)}}field label used as the TCCM characteristic{p_end}
 {synopt :{bf:r(ado_a)} / {bf:r(ado_d)} / {bf:r(ado_o)}}row counts per ADO class{p_end}
-{synopt :{bf:r(net_networks_within)} / {bf:r(net_networks_cross)}}counts of networks built; only with {opt netmeasures}{p_end}
+{synopt :{bf:r(net_networks_within)} / {bf:r(net_networks_cross)}}counts of networks built;{...}
+ only with {opt netmeasures}{p_end}
 {synopt :{bf:r(net_nodes_within)} / {bf:r(net_nodes_cross)}}row counts of the two network-measures files{p_end}
-{synopt :{bf:r(net_modularity_mean)} / {bf:r(net_modularity_min)} / {bf:r(net_modularity_max)}}summary statistics of within-field network modularity{p_end}
+{synopt :{bf:r(net_modularity_mean)} / {bf:r(net_modularity_min)} / {bf:r(net_modularity_max)}}{...}
+ summary statistics of within-field network modularity{p_end}
 {synopt :{bf:r(net_louvain_seed)}}seed used for Louvain community detection {p_end}
-{synopt :{bf:r(network_measures_file)} / {bf:r(network_measures_cross_file)}}absolute paths to the two output files{p_end}
-{synopt :{bf:r(topic_stability_file)}}absolute path to {bf:litdiscover_topic_stability.dta} (only when {opt seeds()} > 1){p_end}
-{synopt :{bf:r(topicterms_file)}}absolute path to {bf:litdiscover_topicterms.dta} (the table autoloaded into memory by default){p_end}
-{synopt :{bf:r(input_recovery_file)}}absolute path to the saved copy of the input dataset; use with {helpb use} to restore the input data {p_end}
+{synopt :{bf:r(network_measures_file)} / {bf:r(network_measures_cross_file)}}{...}
+ absolute paths to the two output files{p_end}
+{synopt :{bf:r(topic_stability_file)}}absolute path to {bf:litdiscover_topic_stability.dta}{...}
+ (only when {opt seeds()} > 1){p_end}
+{synopt :{bf:r(topicterms_file)}}absolute path to {bf:litdiscover_topicterms.dta}{...}
+ (the table autoloaded into memory by default){p_end}
+{synopt :{bf:r(input_recovery_file)}}absolute path to the saved copy of the input dataset;{...}
+ use with {helpb use} to restore the input data {p_end}
 {synopt :{bf:r(frex_omega)} / {bf:r(frex_epsilon)}}FREX parameters; only with {opt frex}{p_end}
 {synopt :{bf:r(frex_topics)} / {bf:r(frex_vocab_size)}}counts used in the FREX ECDFs{p_end}
 {p2colreset}{...}
@@ -350,22 +364,27 @@ Conditional returns:
 {phang3}{cmd:. litdiscover, abstract(abstract) theory(theory) topics(8)}{p_end}
 
 {phang2}Full call with all construct fields, year stratification, and the subdirectory layout{p_end}
-{phang3}{cmd:. litdiscover, abstract(abstract) id(study_id) year(year) theory(theory) dv(dv) iv(iv) mod(mod) med(med) decision(decision) journal(journal) context(context) method(method) topics(8) seeds(5) coherence outdir(review_2026)}{p_end}
+{phang3}{cmd:. litdiscover, abstract(abstract) id(study_id) year(year) theory(theory) dv(dv) iv(iv)}{p_end}
+{phang3}{cmd:        mod(mod) med(med) decision(decision) journal(journal) context(context) method(method)}{p_end}
+{phang3}{cmd:        topics(8) seeds(5) coherence outdir(review_2026)}{p_end}
 
 {phang2}With static figures and interactive HTMLs in the subdirectory layout{p_end}
-{phang3}{cmd:. litdiscover, abstract(abstract) theory(theory) dv(dv) iv(iv) context(context) method(method) year(year) coherence outdir(review_2026) figures interactive}{p_end}
+{phang3}{cmd:. litdiscover, abstract(abstract) theory(theory) dv(dv) iv(iv) context(context) method(method)}{p_end}
+{phang3}{cmd:        year(year) coherence outdir(review_2026) figures interactive}{p_end}
 
 {phang2}TCCM with a non-default characteristic axis{p_end}
-{phang3}{cmd:. litdiscover, abstract(abstract) theory(theory) context(context) method(method) iv(iv) tccmclass(iv) tccmminfreq(2)}{p_end}
+{phang3}{cmd:. litdiscover, abstract(abstract) theory(theory) context(context) method(method) iv(iv)}{p_end}
+{phang3}{cmd:        tccmclass(iv) tccmminfreq(2)}{p_end}
 
 {phang2}Network-analytic measures and FREX{p_end}
-{phang3}{cmd:. litdiscover, abstract(abstract) theory(theory) dv(dv) iv(iv) context(context) method(method) topics(8) netmeasures frex}{p_end}
+{phang3}{cmd:. litdiscover, abstract(abstract) theory(theory) dv(dv) iv(iv) context(context) method(method)}{p_end}
+{phang3}{cmd:        topics(8) netmeasures frex}{p_end}
 
 
 {title:Requirements}
 
 {pstd}
-Stata 19.5 or later, with Python 3 configured for use via {help python}.
+Stata 19 or later, with Python 3 configured for use via {help python}.
 
 {pstd}
 The base Python script {bf:litdiscover.py} requires {bf:pandas},
@@ -411,8 +430,8 @@ https://doi.org/10.1016/j.jbusres.2021.04.070
 {marker greene2014}{...}
 {phang}
 Greene, D., O'Callaghan, D., and Cunningham, P. 2014. How many topics?
-Stability analysis for topic models. In {it:Machine Learning and Knowledge Discovery in Databases (ECML PKDD 2014)}, Lecture Notes in
-Computer Science 8724, 498-513. Springer.
+Stability analysis for topic models. In {it:Machine Learning and Knowledge Discovery in Databases (ECML PKDD 2014)},
+Lecture Notes in Computer Science 8724, 498-513. Springer.
 https://doi.org/10.1007/978-3-662-44848-9_32
 
 {marker jann2018}{...}
@@ -434,7 +453,9 @@ Mimno, D., Wallach, H. M., Talley, E., Leenders, M., and McCallum, A.
 
 {marker paul2024}{...}
 {phang}
-Paul, J., Khatri, P. and Duggal, H. K. 2024. Frameworks for developing impactful systematic literature reviews and theory building: What, Why and How?
+Paul, J., Khatri, P. and Duggal, H. K. 2024. Frameworks for developing
+impactful systematic literature reviews and theory building: What, Why
+and How?
 {it:Journal of Decision Systems} 33(4): 537–550.
 https://doi.org/10.1080/12460125.2023.2197700
 
@@ -447,8 +468,10 @@ for structural topic models. {it:Journal of Statistical Software}
 {marker sievert2014}{...}
 {phang}
 Sievert, C., and Shirley, K. 2014. LDAvis: A method for visualizing and
-interpreting topics. In {it:Proceedings of the Workshop on Interactive Language Learning, Visualization, and Interfaces}, 63-70. Association
-for Computational Linguistics. https://aclanthology.org/W14-3110/
+interpreting topics. In {it:Proceedings of the Workshop on Interactive
+Language Learning, Visualization, and Interfaces}, 63-70.
+Association for Computational Linguistics.
+https://aclanthology.org/W14-3110/
 
 
 {title:Aliases}
@@ -463,7 +486,8 @@ forwards every argument and propagates returned scalars and macros.
 {pstd}
 Nebojsa S. Davcik{break}
 EM Normandie Business School, Oxford, UK{break}
-ORCID: 0000-0003-1041-8788 ({browse "https://orcid.org/0000-0003-1041-8788":https://orcid.org/0000-0003-1041-8788}){break}
+ORCID: 0000-0003-1041-8788{break}
+{browse "https://orcid.org/0000-0003-1041-8788":https://orcid.org/0000-0003-1041-8788}{break}
 Email: {browse "mailto:davcik@live.com":davcik@live.com}
 
 
