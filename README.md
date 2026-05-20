@@ -22,8 +22,13 @@ The short-form alias `litdi` is provided as a convenience.
 
 ## Installation
 
-`litdiscover` is currently distributed via GitHub. SSC distribution
-is planned for a future v1.x release.
+`litdiscover` is currently distributed via GitHub and SSC distribution
+
+Inside Stata:
+
+```stata
+ssc install litdiscover
+```
 
 To install from this repository, run inside Stata:
 
