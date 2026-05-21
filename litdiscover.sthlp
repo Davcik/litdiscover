@@ -453,7 +453,7 @@ Mimno, D., Wallach, H. M., Talley, E., Leenders, M., and McCallum, A.
 
 {marker paul2024}{...}
 {phang}
-Paul, J., Khatri, P. and Duggal, H. K. 2024. Frameworks for developing
+Paul, J., Khatri, P. and Kaur Duggal, H. 2024. Frameworks for developing
 impactful systematic literature reviews and theory building: What, Why
 and How?
 {it:Journal of Decision Systems} 33(4): 537–550.
