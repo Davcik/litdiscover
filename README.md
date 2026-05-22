@@ -85,7 +85,7 @@ When citing `litdiscover` in academic work, please use:
 > Davcik, N. S. 2026. *LITDISCOVER: Stata module for theory-aware
 > literature review, analysis, and discovery.* Statistical Software Components S459718,
 > Boston College Department of Economics, Available at:
-> [https://ideas.repec.org/c/boc/bocode/s459718.html](https://ideas.repec.org/c/boc/bocode/s459718.html])
+> [https://ideas.repec.org/c/boc/bocode/s459718.html](https://ideas.repec.org/c/boc/bocode/s459718.html)
 
 A [CITATION.cff](CITATION.cff) file is provided in the repository
 root for GitHub's "Cite this repository" feature and for ingestion by
