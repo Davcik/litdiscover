@@ -60,7 +60,7 @@ license: "GPL-3.0-or-later"
 # entry of type 'software' when the deliverable is the software itself.
 preferred-citation:
   type: software
-  title: "litdiscover: A Stata package for theory-aware literature review, analysis, and discovery"
+  title: "LITDISCOVER: A Stata module for theory-aware literature review, analysis, and discovery"
   authors:
     - family-names: "Davcik"
       given-names: "Nebojsa S."
@@ -69,4 +69,4 @@ preferred-citation:
       orcid: "https://orcid.org/0000-0003-1041-8788"
   year: 2026
   version: "1.0"
-  url: "https://github.com/Davcik/litdiscover"
+  url: "https://ideas.repec.org/c/boc/bocode/s459718.html"
