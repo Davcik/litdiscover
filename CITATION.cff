@@ -60,7 +60,7 @@ license: "GPL-3.0-or-later"
 # entry of type 'software' when the deliverable is the software itself.
 preferred-citation:
   type: software
-  title: "LITDISCOVER: A Stata module for theory-aware literature review, analysis, and discovery"
+  title: "LITDISCOVER: Stata module for theory-aware literature review, analysis, and discovery"
   authors:
     - family-names: "Davcik"
       given-names: "Nebojsa S."
