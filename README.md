@@ -1,3 +1,9 @@
+
+<img width="1214" height="762" alt="litdiscover1" src="https://github.com/user-attachments/assets/78cae243-938a-48be-b23f-74fcc724a266" />
+<img width="585" height="585" alt="litdiscover12" src="https://github.com/user-attachments/assets/60e1a3cf-f997-4f4a-a3f9-c109e09a34e3" />
+
+
+
 # litdiscover
 
 A Stata package for theory-aware literature review, analysis, and
